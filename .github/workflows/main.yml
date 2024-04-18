@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - development
   pull_request:
     branches:
       - main
@@ -23,7 +24,7 @@ jobs:
           java-version: '17'
 
       - name: Build with Maven Unit test
-        run: mvn -B test package --file pom.xml
+        run: mvn -B test --file pom.xml
 
       - name: build the application
         run: |
