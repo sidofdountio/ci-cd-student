@@ -1,0 +1,26 @@
+server:
+  port: ${SERVER_PORT}
+  error:
+    include-message: always
+    include-biding: always
+
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
+#  datasource:
+#    url: jdbc:postgresql://localhost:5332/school
+#    username: ${POSTGRES_USER}
+#    password: ${POSTGRES_PASSWORD}
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        format_sql: true
+#    show-sql: true
+application:
+  title: school app
+  version: v1
+
+
