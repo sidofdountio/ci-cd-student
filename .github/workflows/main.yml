@@ -26,4 +26,3 @@ jobs:
       - name: Build with Maven Unit test
         run: mvn -B test --file pom.xml
 
-      
