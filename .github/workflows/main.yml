@@ -26,7 +26,4 @@ jobs:
       - name: Build with Maven Unit test
         run: mvn -B test --file pom.xml
 
-      - name: build the application
-        run: |
-          mvn clean
-          mvn -B package --file pom.xml
+      
