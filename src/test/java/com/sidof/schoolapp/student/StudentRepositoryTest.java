@@ -1,14 +1,12 @@
-package com.sidof.schoolappapi.student;
+package com.sidof.schoolapp.student;
 
-import com.sidof.schoolappapi.enume.Gender;
+import com.sidof.schoolapp.enume.Gender;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

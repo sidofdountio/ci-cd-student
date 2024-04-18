@@ -1,6 +1,6 @@
-package com.sidof.schoolappapi.student;
+package com.sidof.schoolapp.student;
 
-import com.sidof.schoolappapi.enume.Gender;
+import com.sidof.schoolapp.enume.Gender;
 
 public class StudentDTO {
     private String lastName;
