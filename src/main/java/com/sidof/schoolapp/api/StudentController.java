@@ -1,15 +1,12 @@
-package com.sidof.schoolappapi.api;
+package com.sidof.schoolapp.api;
 
-import com.sidof.schoolappapi.enume.Gender;
-import com.sidof.schoolappapi.student.Student;
-import com.sidof.schoolappapi.student.StudentService;
+import com.sidof.schoolapp.student.Student;
+import com.sidof.schoolapp.student.StudentService;
 import lombok.AllArgsConstructor;
 import org.apache.coyote.BadRequestException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;

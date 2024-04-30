@@ -1,12 +1,8 @@
-package com.sidof.schoolappapi.student;
+package com.sidof.schoolapp.student;
 
-import com.sidof.schoolappapi.enume.Gender;
+import com.sidof.schoolapp.enume.Gender;
 import org.apache.coyote.BadRequestException;
-import org.assertj.core.api.Assertions;
-import org.checkerframework.checker.units.qual.A;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -16,13 +12,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalDate;
 import java.util.Optional;
 
-import static com.sidof.schoolappapi.enume.Gender.FEMALE;
+import static com.sidof.schoolapp.enume.Gender.FEMALE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class StudentServiceTest {

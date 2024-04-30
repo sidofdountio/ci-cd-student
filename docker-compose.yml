@@ -16,15 +16,15 @@ services:
     networks:
       - db
 
-  api_school_app:
-    depends_on:
-      - school_app_db
-    container_name: api_school_app
+  devops-skills-api:
+    container_name: devops-skills-api
     build:
       context: .
       args:
         CONTAINER_PORT: ${CONTAINER_PORT}
-    image: api_school_app:v1
+    image: devops-skills-api:1.0.0
+    depends_on:
+      - school_app_db
     restart: unless-stopped
     env_file: ./.env
     ports:

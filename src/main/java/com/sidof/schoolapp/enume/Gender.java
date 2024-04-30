@@ -1,4 +1,4 @@
-package com.sidof.schoolappapi.enume;
+package com.sidof.schoolapp.enume;
 
 public enum Gender {
     FEMALE,
