@@ -1,5 +1,6 @@
-package com.sidof.schoolapp.student;
+package com.sidof.schoolapp.repo;
 
+import com.sidof.schoolapp.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

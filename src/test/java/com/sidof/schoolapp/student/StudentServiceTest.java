@@ -1,6 +1,8 @@
 package com.sidof.schoolapp.student;
 
 import com.sidof.schoolapp.enume.Gender;
+import com.sidof.schoolapp.model.Student;
+import com.sidof.schoolapp.repo.StudentRepository;
 import org.apache.coyote.BadRequestException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
