@@ -28,14 +28,7 @@ services:
     env_file: ./.env.prod
     ports:
       - 80:8083
-#    environment:
-#      SPRING_APPLICATION_JSON: '{
-#            "spring.datasource.url"  : "jdbc:postgresql://devopsDb:5432/dbschool",
-#            "spring.datasource.username" : "sidof",
-#            "spring.datasource.password" : "sidof1/@",
-#            "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.PostgreSQLDialect",
-#            "spring.jpa.hibernate.ddl-auto" : "update"
-#          }'
+
     networks:
       - networkDevops
 
