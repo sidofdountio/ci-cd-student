@@ -28,4 +28,11 @@ public class Student {
     private String code;
     private String imageUrl;
 
+    public Student(Long id, String firstName, String email, LocalDate dob, Gender gender) {
+        this.id = id;
+        this.firstName = firstName;
+        this.email = email;
+        this.dob = dob;
+        this.gender = gender;
+    }
 }

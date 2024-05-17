@@ -36,6 +36,7 @@ class StudentServiceTest {
     void canSaveNewStudent() throws BadRequestException {
 //        Given
         Student student = new Student(
+                1L,
                 "Belviane",
                 "belviane@gmail.com",
                 LocalDate.of(2009, 1, 1),
@@ -99,6 +100,7 @@ class StudentServiceTest {
     void ShouldthrownNotFoundStudentIfStudentExist() {
 //        Given
         Student student = new Student(
+                1L,
                 "Belviane",
                 "belviane@gmail.com",
                 LocalDate.of(2009, 1, 1),
@@ -114,6 +116,7 @@ class StudentServiceTest {
     void canGetAllStudent() {
 //        Given
         Student student = new Student(
+                1L,
                 "Belviane",
                 "belviane@gmail.com",
                 LocalDate.of(2009, 1, 1),
