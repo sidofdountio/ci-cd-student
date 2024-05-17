@@ -9,5 +9,5 @@ RUN mvn package -DskipTests -X
 
 FROM openjdk:17
 COPY --from=build /app/target/*.jar app.jar
-EXPOSE ${CONTAINER_PORT}
+EXPOSE 8083
 CMD ["java","-jar","app.jar"]

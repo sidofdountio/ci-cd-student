@@ -20,22 +20,22 @@ services:
     build:
       context: .
       args:
-        CONTAINER_PORT: ${CONTAINER_PORT}
-    image: devops-skills-api:v1
+        CONTAINER_PORT: 8083
+    image: dountio/devops-skills-api:latest
     depends_on:
       - devopsDb
     restart: unless-stopped
     env_file: ./.env.prod
     ports:
-      - 80:80
-    environment:
-      SPRING_APPLICATION_JSON: '{
-            "spring.datasource.url"  : "jdbc:postgresql://devopsDb:5432/dbschool",
-            "spring.datasource.username" : "sidof",
-            "spring.datasource.password" : "sidof1/@",
-            "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.PostgreSQLDialect",
-            "spring.jpa.hibernate.ddl-auto" : "update"
-          }'
+      - 80:8083
+#    environment:
+#      SPRING_APPLICATION_JSON: '{
+#            "spring.datasource.url"  : "jdbc:postgresql://devopsDb:5432/dbschool",
+#            "spring.datasource.username" : "sidof",
+#            "spring.datasource.password" : "sidof1/@",
+#            "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.PostgreSQLDialect",
+#            "spring.jpa.hibernate.ddl-auto" : "update"
+#          }'
     networks:
       - networkDevops
 
