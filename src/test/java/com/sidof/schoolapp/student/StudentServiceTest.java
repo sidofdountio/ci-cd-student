@@ -1,6 +1,8 @@
 package com.sidof.schoolapp.student;
 
 import com.sidof.schoolapp.enume.Gender;
+import com.sidof.schoolapp.model.Student;
+import com.sidof.schoolapp.repo.StudentRepository;
 import org.apache.coyote.BadRequestException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,6 +36,7 @@ class StudentServiceTest {
     void canSaveNewStudent() throws BadRequestException {
 //        Given
         Student student = new Student(
+                1L,
                 "Belviane",
                 "belviane@gmail.com",
                 LocalDate.of(2009, 1, 1),
@@ -97,6 +100,7 @@ class StudentServiceTest {
     void ShouldthrownNotFoundStudentIfStudentExist() {
 //        Given
         Student student = new Student(
+                1L,
                 "Belviane",
                 "belviane@gmail.com",
                 LocalDate.of(2009, 1, 1),
@@ -112,6 +116,7 @@ class StudentServiceTest {
     void canGetAllStudent() {
 //        Given
         Student student = new Student(
+                1L,
                 "Belviane",
                 "belviane@gmail.com",
                 LocalDate.of(2009, 1, 1),

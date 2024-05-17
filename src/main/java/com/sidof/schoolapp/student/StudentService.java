@@ -1,10 +1,13 @@
 package com.sidof.schoolapp.student;
 
+import com.sidof.schoolapp.model.Student;
+import com.sidof.schoolapp.repo.StudentRepository;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService implements StudentServiceDAO{
@@ -44,5 +47,14 @@ public class StudentService implements StudentServiceDAO{
             throw new NullPointerException("student with "+ studentId + " not found");
         }
         studentRepository.deleteById(studentId);
+    }
+
+    @Override
+    public Student getStudentById(Long id) {
+        boolean existsById = studentRepository.existsById(id);
+        if(!existsById){
+            throw new IllegalArgumentException("Student with "+ id + " does exist");
+        }
+        return studentRepository.findById(id).get();
     }
 }

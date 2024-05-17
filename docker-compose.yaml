@@ -1,0 +1,46 @@
+services:
+  devopsDb:
+    container_name: devopsDb
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: sidof
+      POSTGRES_PASSWORD: sidof1/@
+      PGDATA: /data/postgres
+    volumes:
+      - networkDevops:/data/postgres
+    ports:
+      - 5434:5432
+    networks:
+      - networkDevops
+
+#  devops-skills-api:
+#    container_name: devops-skills-api
+#    build:
+#      context: .
+#      args:
+#        CONTAINER_PORT: ${CONTAINER_PORT}
+#    image: devops-skills-api:v1
+#    depends_on:
+#      - school_app_db
+#    restart: unless-stopped
+#    env_file:
+#      - ${ENV_FILE}
+#    ports:
+#      - 80:8083
+#    environment:
+#      SPRING_APPLICATION_JSON: '{
+#            "spring.datasource.url"  : "jdbc:postgresql://school_app_db:5432/dbschool",
+#            "spring.datasource.username" : "sidof",
+#            "spring.datasource.password" : "sidof1/@",
+#            "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.PostgreSQLDialect",
+#            "spring.jpa.hibernate.ddl-auto" : "update"
+#          }'
+#    networks:
+#      - db
+
+networks:
+  networkDevops:
+    driver: bridge
+volumes:
+  networkDevops:

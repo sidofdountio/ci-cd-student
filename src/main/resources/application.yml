@@ -1,14 +1,17 @@
 server:
-  port: ${SERVER_PORT}
+  port: 8083
   error:
     include-message: always
     include-biding: always
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: 500MB
   profiles:
     active: ${ACTIVE_PROFILE:dev}
   datasource:
-    url: jdbc:postgresql://localhost:5432/dbschool
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_DOCKER_PORT}/${POSTGRES_DATABASE}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
   jpa:
@@ -22,5 +25,8 @@ spring:
 application:
   title: school app
   version: v1
+  file:
+    upload:
+      photos-output-path: ./upload
 
 

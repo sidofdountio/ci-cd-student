@@ -1,6 +1,8 @@
 package com.sidof.schoolapp.student;
 
 import com.sidof.schoolapp.enume.Gender;
+import com.sidof.schoolapp.model.Student;
+import com.sidof.schoolapp.repo.StudentRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,7 @@ class StudentRepositoryTest {
     void selectExistEmail(){
 //        Given
         Student student = new Student(
+                1L,
                 "Belviane",
                 "belviane@gmail.com",
                 LocalDate.of(2009, 1, 1),
