@@ -3,6 +3,7 @@ services:
     container_name: devopsDb
     image: postgres
     restart: unless-stopped
+    env_file: ./.env.prod
     environment:
       POSTGRES_USER: sidof
       POSTGRES_PASSWORD: sidof1/@
@@ -10,7 +11,7 @@ services:
     volumes:
       - networkDevops:/data/postgres
     ports:
-      - 5434:5432
+      -  "5332:5432"
     networks:
       - networkDevops
 
@@ -29,7 +30,7 @@ services:
       - 80:8083
     environment:
       SPRING_APPLICATION_JSON: '{
-            "spring.datasource.url"  : "jdbc:postgresql://devopsDb:5432/dbschool",
+            "spring.datasource.url"  : "jdbc:postgresql://devopsDb:5332/dbschool",
             "spring.datasource.username" : "sidof",
             "spring.datasource.password" : "sidof1/@",
             "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.PostgreSQLDialect",
