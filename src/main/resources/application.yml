@@ -9,7 +9,7 @@ spring:
     multipart:
       max-file-size: 500MB
   profiles:
-    active: ${ACTIVE_PROFILE:dev}
+    active: ${ACTIVE_PROFILE:prod}
   datasource:
     url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_DOCKER_PORT}/${POSTGRES_DATABASE}
     username: ${POSTGRES_USER}
