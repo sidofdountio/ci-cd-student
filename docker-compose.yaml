@@ -11,32 +11,11 @@ services:
     volumes:
       - networkDevops:/data/postgres
     ports:
-      - 5433:5432
+      - 5434:5432
     networks:
       - networkDevops
 
-  devops-skills-api:
-    container_name: devops-skills-api
-    build:
-      context: .
-      args:
-        CONTAINER_PORT: 8083
-    image: dountio/devops-skills-api:latest
-    depends_on:
-      - devopsDb
-    restart: unless-stopped
-    ports:
-      - 80:8083
-#    environment:
-#      SPRING_APPLICATION_JSON: '{
-#            "spring.datasource.url"  : "jdbc:postgresql://devopsDb:5432/dbschool",
-#            "spring.datasource.username" : "sidof",
-#            "spring.datasource.password" : "sidof1/@",
-#            "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.PostgreSQLDialect",
-#            "spring.jpa.hibernate.ddl-auto" : "update"
-#          }'
-    networks:
-      - networkDevops
+ 
 
 networks:
   networkDevops:
