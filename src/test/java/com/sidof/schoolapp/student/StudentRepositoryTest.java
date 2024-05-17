@@ -26,6 +26,7 @@ class StudentRepositoryTest {
     void selectExistEmail(){
 //        Given
         Student student = new Student(
+                1L,
                 "Belviane",
                 "belviane@gmail.com",
                 LocalDate.of(2009, 1, 1),
