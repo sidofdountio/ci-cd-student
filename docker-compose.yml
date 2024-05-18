@@ -1,0 +1,32 @@
+services:
+  postgre-student-db:
+    container_name: postgre-student-db
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: sidof
+      POSTGRES_PASSWORD: sidof1/@
+      PGDATA: /data/postgres
+    volumes:
+      - network-student:/data/postgres
+    ports:
+      - 5434:5432
+    networks:
+      - network-student
+
+  student-api:
+    container_name: student-api
+    image: dountio/student-api:v1
+    ports:
+      - 80:8080
+    networks:
+      - network-student
+    depends_on:
+      - postgre-student-db
+ 
+
+networks:
+  network-student:
+    driver: bridge
+volumes:
+  network-student:
