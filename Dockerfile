@@ -13,4 +13,4 @@ FROM amazoncorretto:17
 WORKDIR /app
 COPY --from=build /build/target/*.jar /app/
 EXPOSE 8080
-CMD ["java","-jar","app-api-*.jar"]
+CMD ["java","-jar","app-api-0.0.1.jar"]
