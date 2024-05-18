@@ -11,7 +11,7 @@ spring:
   profiles:
     active: prod
   datasource:
-    url: jdbc:postgresql://localhost:5432/dbschool
+    url: jdbc:postgresql://localhost:5332/dbschool
     username: sidof
     password: sidof1/@
   jpa:
