@@ -8,12 +8,15 @@ spring:
   servlet:
     multipart:
       max-file-size: 500MB
+
   profiles:
     active: prod
-  datasource:
-    url: jdbc:postgresql://localhost:5434/dbschool
-    username: sidof
-    password: sidof1/@
+
+#  datasource:
+#    url: jdbc:postgresql://localhost:5434/dbschool
+#    username: sidof
+#    password: sidof1/@
+
   jpa:
     hibernate:
       ddl-auto: update
