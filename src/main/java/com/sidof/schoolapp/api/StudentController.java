@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static com.sidof.schoolapp.utils.UploadImage.uploadImage;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
@@ -38,7 +40,6 @@ public class StudentController {
     @GetMapping("/students")
     public ResponseEntity<List<Student>> students() {
         List<Student> allStudent = studentService.getAllStudent();
-        System.out.println();
         return new ResponseEntity<>(allStudent, OK);
     }
 
@@ -58,9 +59,7 @@ public class StudentController {
     @PostMapping("/upload/{id}")
     public ResponseEntity<String> uploadStudentImageUrl(@RequestParam("file") MultipartFile multipartFile,
                                                         @PathVariable("id") Long id) throws IOException {
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        Path fileStorage = Paths.get(DIRECTORY, fileName).toAbsolutePath().normalize();
-        Files.copy(multipartFile.getInputStream(), fileStorage, REPLACE_EXISTING);
+        String fileName = uploadImage(multipartFile);
         Student student = studentService.getStudentById(id);
         String profileImage = getProfileImage(fileName);
         student.setImageUrl(profileImage);
@@ -68,18 +67,16 @@ public class StudentController {
         return ResponseEntity.ok().body(fileName);
     }
 
+
+
     @GetMapping(path = "/image/{imageUrl}", produces = IMAGE_PNG_VALUE)
     public byte[] getImage(@PathVariable("imageUrl") String imageUrl) throws IOException {
         return Files.readAllBytes(Paths.get(DIRECTORY + "/" + imageUrl));
     }
 
-    @GetMapping(path = "/image", produces = IMAGE_PNG_VALUE)
-    public byte[] image(@PathVariable("imageUrl") String imageUrl) throws IOException {
-        return Files.readAllBytes(Paths.get(DIRECTORY + "/" + imageUrl));
-    }
+
 
     private String getProfileImage(String fileName) {
-//        list
         return ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/v1/school/image/"+fileName).toUriString();
     }
 }

@@ -6,7 +6,8 @@ services:
     environment:
       POSTGRES_USER: sidof
       POSTGRES_PASSWORD: sidof1/@
-      PGDATA: /data/postgres
+#      PGDATA: /data/postgres
+      PGDATA: /var/lib/postgresql/data
     volumes:
       - network-student:/data/postgres
     ports:
