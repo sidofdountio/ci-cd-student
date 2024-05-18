@@ -18,7 +18,7 @@ services:
     container_name: student-api
     image: dountio/student-api:v1
     ports:
-      - 80:8080"
+      - 80:8080
     depends_on:
       - postgre-student-db
     environment:
