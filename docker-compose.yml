@@ -10,7 +10,7 @@ services:
     volumes:
       - network-student:/data/postgres
     ports:
-      - 5434:5432
+      - 5432:5432
     networks:
       - network-student
 
