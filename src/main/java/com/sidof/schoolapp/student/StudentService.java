@@ -28,12 +28,13 @@ public class StudentService implements StudentServiceDAO{
     }
 
     @Override
-    public void editeStudent(Student studentToEdit) throws BadRequestException {
+    public Student editeStudent(Student studentToEdit) {
         // Retrieve the existing student from the database using the student's ID
-        Student existingStudent = studentRepository.findById(studentToEdit.getId())
-                .orElseThrow(() -> new IllegalArgumentException("Student not found"));
-       studentRepository.save(existingStudent);
-
+        boolean existsById = studentRepository.existsById(studentToEdit.getId());
+        if(!existsById){
+            throw new IllegalArgumentException("Student with "+ studentToEdit.getId() + " does exist");
+        }
+       return studentRepository.save(studentToEdit);
     }
 
     @Override

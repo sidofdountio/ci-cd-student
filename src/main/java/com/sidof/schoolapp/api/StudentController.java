@@ -38,10 +38,11 @@ public class StudentController {
     }
 
     @GetMapping("/students")
-    public ResponseEntity<List<Student>> students() {
+    public ResponseEntity<List<Student>> getStudents() {
         List<Student> allStudent = studentService.getAllStudent();
         return new ResponseEntity<>(allStudent, OK);
     }
+
 
     @GetMapping("/student/{id}")
     public ResponseEntity<Student> getStudent(@PathVariable("id") Long id) {
@@ -52,8 +53,14 @@ public class StudentController {
     @PostMapping
     public ResponseEntity<Student> add(@RequestBody Student student) throws BadRequestException {
         Student savedNewStudent = studentService.saveNewStudent(student);
-
         return new ResponseEntity<>(savedNewStudent, CREATED);
+    }
+
+    @PutMapping
+    public ResponseEntity<Student> edit(@RequestBody Student student) throws BadRequestException {
+        Student editeStudent = studentService.editeStudent(student);
+        System.out.println(student);
+        return new ResponseEntity<>(editeStudent,OK);
     }
 
     @PostMapping("/upload/{id}")
@@ -67,11 +74,15 @@ public class StudentController {
         return ResponseEntity.ok().body(fileName);
     }
 
-
-
     @GetMapping(path = "/image/{imageUrl}", produces = IMAGE_PNG_VALUE)
     public byte[] getImage(@PathVariable("imageUrl") String imageUrl) throws IOException {
         return Files.readAllBytes(Paths.get(DIRECTORY + "/" + imageUrl));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteStudent(@PathVariable("id") Long id) {
+        studentService.deleteStudent(id);
+        return new ResponseEntity<>(OK);
     }
 
 
