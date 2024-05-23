@@ -30,11 +30,10 @@ public class StudentService implements StudentServiceDAO{
     @Override
     public Student editeStudent(Student studentToEdit) {
         // Retrieve the existing student from the database using the student's ID
-        boolean existsById = studentRepository.existsById(studentToEdit.getId());
-        if(!existsById){
-            throw new IllegalArgumentException("Student with "+ studentToEdit.getId() + " does exist");
-        }
+        Student existingStudent = studentRepository.findById(studentToEdit.getId())
+                .orElseThrow(() -> new IllegalArgumentException("Student not found"));
        return studentRepository.save(studentToEdit);
+
     }
 
     @Override
